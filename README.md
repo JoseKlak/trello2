@@ -1,8 +1,16 @@
 # Demandas · José Klak
 
-Quadro pessoal inspirado no fluxo visual do Trello. Aplicação estática sem dependências, compatível com GitHub Pages. Nenhum serviço Supabase é utilizado.
+Quadro pessoal inspirado no fluxo visual do Trello. Interface estática compatível com GitHub Pages, com suporte opcional a login e sincronização pelo Supabase gratuito.
 
-## Usar
+## Ativar sincronização
+
+O suporte está preparado, mas fica desativado enquanto `cloud-config.js` estiver vazio. A configuração requer um projeto real do Supabase. Consulte [SETUP_SUPABASE.md](SETUP_SUPABASE.md). Não há mudança automática para o modo nuvem sem essa configuração.
+
+No modo nuvem, o Supabase Auth verifica e-mail e senha. O banco guarda um documento JSON por usuário, protegido por políticas de acesso (RLS). A gravação confere a revisão anterior para rejeitar alterações simultâneas que sobrescreveriam outro aparelho. Atualizações são consultadas a cada 15 segundos enquanto a página está visível, sem modal, campo em edição ou gravação pendente. Edições offline ficam em memória até conseguir salvar ou exportar um backup; o app avisa antes de sair com alterações não sincronizadas. Não é uma aplicação offline-first.
+
+Backups do modo nuvem são JSON sem criptografia, para portabilidade. Backups antigos criptografados podem ser importados após o login, com a senha antiga. A restauração substitui o quadro da conta. Nenhuma migração local é feita sem confirmação. A sessão autenticada fica somente em memória, exigindo novo login ao recarregar a página.
+
+## Usar no modo local (enquanto a nuvem não estiver configurada)
 
 No primeiro acesso, crie uma senha de pelo menos oito caracteres. A senha é específica daquele navegador, não é uma conta na internet. Os dados são criptografados com AES-GCM e uma chave derivada por PBKDF2/SHA-256 (310.000 iterações), e salvos em `localStorage`. Sem recuperação de senha. A senha e as demandas não são enviadas ao GitHub.
 
@@ -24,7 +32,7 @@ Importação inicial inclui listas, cartões não arquivados, descrições e che
 
 Requer Node.js moderno (22+). `npm test` executa os testes; `npm start` serve em http://127.0.0.1:4189. Sem instalação de pacotes.
 
-O armazenamento está isolado em `vault.js`; regras de negócio e conversão do Trello em `core.js`, para facilitar futura sincronização e integrações.
+O cofre local está em `vault.js`; regras de negócio e conversão do Trello em `core.js`; acesso ao Supabase em `cloud.js`. O SDK do Supabase é carregado por CDN somente quando o projeto estiver configurado.
 
 ## Publicação em GitHub Pages
 

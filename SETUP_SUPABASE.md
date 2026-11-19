@@ -1,6 +1,6 @@
 # Ativar Supabase gratuito
 
-Estado atual: projeto remoto `pnwlbqmovmwltvaptejn` conectado no plano Free; esquema aplicado e políticas de acesso verificadas. A configuração com chave publicável está pronta localmente. Falta José definir sua senha de usuário no Supabase e confirmar o destino de hospedagem desta plataforma antes de publicar a ativação.
+Estado atual: projeto remoto `pnwlbqmovmwltvaptejn` conectado no plano Free; esquema aplicado e políticas de acesso verificadas. José criou o usuário, o e-mail está confirmado e a gravação/leitura autenticada e a rejeição de conflitos foram testadas no banco real dentro de uma transação revertida. Destino confirmado por José: GitHub Pages, repositório `JoseKlak/trello2`. A validação visual completa após login em dois aparelhos depende do usuário entrar com sua senha; o agente não recebeu a senha.
 
 1. Integração já conectada. Projeto existente e saudável na organização pessoal de José, plano Free. Não é necessário criar outro projeto.
 2. Aplicar `supabase.sql` no SQL Editor do projeto. Ele cria uma tabela JSON por usuário, políticas RLS e uma função que verifica revisões antes de salvar.

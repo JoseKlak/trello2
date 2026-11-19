@@ -4,7 +4,7 @@ Quadro pessoal inspirado no fluxo visual do Trello. Interface estática compatí
 
 ## Ativar sincronização
 
-O projeto gratuito do Supabase está conectado e `cloud-config.js` está configurado com URL e chave publicável. Esquema e isolamento de usuários foram verificados no banco real. Falta definir o usuário/senha e publicar a configuração no destino confirmado por José. Consulte [SETUP_SUPABASE.md](SETUP_SUPABASE.md).
+O projeto gratuito do Supabase está conectado e `cloud-config.js` está configurado com URL e chave publicável. Esquema, isolamento e gravação autenticada foram verificados no banco real. O usuário foi criado por José, que confirmou a publicação no GitHub Pages em `JoseKlak/trello2`. Consulte [SETUP_SUPABASE.md](SETUP_SUPABASE.md).
 
 No modo nuvem, o Supabase Auth verifica e-mail e senha. O banco guarda um documento JSON por usuário, protegido por políticas de acesso (RLS). A gravação confere a revisão anterior para rejeitar alterações simultâneas que sobrescreveriam outro aparelho. Atualizações são consultadas a cada 15 segundos enquanto a página está visível, sem modal, campo em edição ou gravação pendente. Edições offline ficam em memória até conseguir salvar ou exportar um backup; o app avisa antes de sair com alterações não sincronizadas. Não é uma aplicação offline-first.
 

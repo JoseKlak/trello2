@@ -1,7 +1,7 @@
 import{uid,dateISO,emptyState,generateYear,parseTrello,normalize,importTrello,validateState,summarize}from'./core.js';
 import{derive,seal,unlock}from'./vault.js';
-import{cloudConfig}from'./cloud-config.js';
-import{connectCloud}from'./cloud.js';
+import{cloudConfig}from'./cloud-config.js?v=1.2.0';
+import{connectCloud}from'./cloud.js?v=1.2.0';
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const KEY='jose-demandas-v1';let state,key,salt,view='board',query='',activeCard=null,saveQueue=Promise.resolve(),fileMode='trello',pendingImport=null;let storageAvailable=true;

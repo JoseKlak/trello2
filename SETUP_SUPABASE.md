@@ -1,8 +1,8 @@
 # Ativar Supabase gratuito
 
-Estado atual: código preparado; projeto remoto e usuário ainda não configurados. Não afirmar que a sincronização está ativa antes de executar as etapas e os testes abaixo.
+Estado atual: projeto remoto `pnwlbqmovmwltvaptejn` conectado no plano Free; esquema aplicado e políticas de acesso verificadas. A configuração com chave publicável está pronta localmente. Falta José definir sua senha de usuário no Supabase e confirmar o destino de hospedagem desta plataforma antes de publicar a ativação.
 
-1. Instalar e conectar a integração Supabase no ChatGPT, ou criar um projeto pelo [painel oficial](https://supabase.com/dashboard). Usar conta/organização de José Klak, plano Free, sem contratar plano pago. Não usar organização ou domínio com identidade proibida nas instruções do projeto.
+1. Integração já conectada. Projeto existente e saudável na organização pessoal de José, plano Free. Não é necessário criar outro projeto.
 2. Aplicar `supabase.sql` no SQL Editor do projeto. Ele cria uma tabela JSON por usuário, políticas RLS e uma função que verifica revisões antes de salvar.
 3. Cadastrar o usuário de José em Authentication → Users pelo painel, usando e-mail e senha definidos pelo próprio usuário. A senha do painel Supabase é diferente da senha de acesso à plataforma. Não colocar senhas, chaves secretas ou service_role no código ou no chat. Não há tela de cadastro público na plataforma.
 4. Preencher `cloud-config.js` com a URL `https://<referencia>.supabase.co` e a chave **publishable** (ou anon de projetos antigos). Essas informações são públicas por projeto; a proteção depende das políticas RLS, não de esconder a chave. Nunca usar chave secret/service_role.
@@ -14,6 +14,6 @@ Estado atual: código preparado; projeto remoto e usuário ainda não configurad
 
 O projeto deve permanecer no plano Free. Conferir [preços oficiais](https://supabase.com/pricing) antes da criação: há limites de armazenamento/tráfego e pausa após inatividade. Não adicionar forma de pagamento ou fazer upgrade automaticamente. Manter backups exportados; a aplicação não depende de recursos pagos.
 
-## Validação disponível sem conexão
+## Validação realizada
 
-`npm test` valida regras de importação, planejamento anual, criptografia local e o adaptador de nuvem com cliente simulado (leitura, revisão de gravação e conflito). Esses testes não substituem a validação das políticas SQL e a sincronização em um projeto real. A configuração permanece vazia até essa etapa.
+`npm test`: oito testes passaram (importação, planejamento anual, criptografia local e adaptador de nuvem com cliente simulado). No banco real, foi executada uma transação de teste com dois usuários descartáveis: criação, gravação com revisão, rejeição de revisão antiga e isolamento entre usuários. A transação foi revertida; nenhum usuário ou quadro de teste permaneceu. A API real retornou HTTP 401 ao tentar ler sem login; o verificador de segurança do Supabase não apontou alertas. O SDK fixado em 2.119.2 carregou e a tela de login foi conferida no navegador. Falta o teste ponta a ponta em dois aparelhos após José definir sua senha e o destino de publicação.

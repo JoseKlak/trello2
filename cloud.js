@@ -31,7 +31,7 @@ export async function connectCloud(config) {
   if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(config.url)) throw new Error('URL do Supabase inválida.');
   if (!globalThis.supabase) await new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js';
+    script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.2/dist/umd/supabase.js';
     script.onload = resolve;
     script.onerror = () => reject(new Error('Não foi possível carregar o acesso à conta. Confira a conexão.'));
     document.head.append(script);

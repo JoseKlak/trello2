@@ -25,6 +25,7 @@ Não há sincronização automática: cada aparelho tem seu próprio quadro. Em 
 - Geração idempotente das semanas de um ano, considerando segundas-feiras que pertencem ao ano, com cinco checklists diários.
 - Transferência de pendências entre cartões, preservando o histórico de horas no cartão onde foram lançadas.
 - Lançamentos manuais de minutos por data, fábrica e atividade; relatório filtrado e CSV.
+- Check discreto SeSuite em cada atividade para registrar manualmente se suas horas já foram apontadas no sistema da empresa. É independente da conclusão e do registro local de tempo; começa desmarcado nas atividades antigas. Não envia dados ao SeSuite. O estado é preservado na sincronização, backups, edição e transferência de pendências.
 - Importação de JSON de quadro ou cartão do Trello, prévia e associação obrigatória das fábricas. IDs de origem impedem reimportação. Backlogs semanais deduplicam por texto normalizado e fábrica.
 
 Importação inicial inclui listas, cartões não arquivados, descrições e checklists. Não inclui anexos, comentários, etiquetas ou automações. Exportações do Trello não contêm necessariamente horas trabalhadas; a plataforma não inventa esses dados. Importações repetidas de um cartão já importado são ignoradas, inclusive alterações posteriores no Trello. Backlog compartilhado mostra a situação atual, sem fotografia histórica por semana.

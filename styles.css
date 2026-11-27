@@ -3,3 +3,4 @@
 #login-button{display:flex;align-items:center;justify-content:center;gap:9px;min-height:38px}#login-button[aria-busy=true]{opacity:1;cursor:wait}.login-spinner{width:16px;height:16px;border:2px solid #172b4d40;border-top-color:currentColor;border-radius:50%;animation:login-spin .75s linear infinite;flex-shrink:0}@keyframes login-spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.login-spinner{animation:none}}
 .template-option{display:flex;align-items:center;gap:9px;line-height:1.5;cursor:pointer}.template-option input[type=checkbox]{margin:0;flex:0 0 17px}#new-card-preview>div{padding:3px 0}
 .checklist-time{display:inline-block;margin-left:8px;font-size:.8125rem;font-weight:400;color:var(--muted);white-space:nowrap;vertical-align:baseline}
+.delete-task-action{display:inline-flex;align-items:center;justify-content:center;color:var(--muted)}.delete-task-action:hover{color:#ff9c8f;background:#ff9c8f15}

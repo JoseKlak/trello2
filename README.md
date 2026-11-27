@@ -19,6 +19,7 @@ Não há sincronização automática: cada aparelho tem seu próprio quadro. Em 
 ## Recursos
 
 - Listas e cartões, edição de descrições e checklists; mover cartões arrastando ou pelo seletor de lista no celular.
+- Arquivamento de uma lista com todos os cartões pelo menu da lista. O conteúdo e as horas são preservados; restaurar em Ferramentas → Listas arquivadas. Listas arquivadas deixam de aparecer no quadro e nos destinos para novos cartões, planejamento anual e transferência de pendências. Seus registros continuam nos relatórios e backups.
 - Cadastro obrigatório de fábrica em cada atividade; conclusão e edição dos itens.
 - Backlog global compartilhado por todas as listas marcadas como semanais.
 - Geração idempotente das semanas de um ano, considerando segundas-feiras que pertencem ao ano, com cinco checklists diários.

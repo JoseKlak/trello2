@@ -1,0 +1,9 @@
+export function openActionMenu(anchor,actions,root=document.body){
+ const menu=document.createElement('div');menu.className='action-menu';menu.setAttribute('role','menu');anchor.setAttribute('aria-expanded','true');
+ function close(){menu.remove();anchor.setAttribute('aria-expanded','false');document.removeEventListener('pointerdown',outside,true);document.removeEventListener('keydown',keys,true);document.removeEventListener('scroll',scroll,true);window.removeEventListener('resize',close)}
+ function outside(e){if(!menu.contains(e.target)&&!anchor.contains(e.target))close()}
+ function scroll(e){if(!menu.contains(e.target))close()}
+ function keys(e){if(e.key==='Escape'){e.preventDefault();e.stopPropagation();close();anchor.focus({preventScroll:true})}else if(['ArrowDown','ArrowUp'].includes(e.key)){e.preventDefault();const buttons=[...menu.querySelectorAll('button')],index=buttons.indexOf(document.activeElement);buttons[(index+(e.key==='ArrowDown'?1:-1)+buttons.length)%buttons.length].focus({preventScroll:true})}}
+ for(const action of actions){const button=document.createElement('button');button.type='button';button.setAttribute('role','menuitem');button.textContent=action.label;if(action.danger)button.className='danger';button.onclick=()=>{close();action.run()};menu.append(button)}
+ root.append(menu);const trigger=anchor.getBoundingClientRect(),bounds=menu.getBoundingClientRect();menu.style.left=Math.max(8,Math.min(trigger.right-bounds.width,innerWidth-bounds.width-8))+'px';menu.style.top=(trigger.bottom+bounds.height+8<innerHeight?trigger.bottom+5:Math.max(8,trigger.top-bounds.height-5))+'px';document.addEventListener('pointerdown',outside,true);document.addEventListener('keydown',keys,true);document.addEventListener('scroll',scroll,true);window.addEventListener('resize',close);menu.querySelector('button')?.focus({preventScroll:true});return close;
+}

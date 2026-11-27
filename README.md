@@ -19,6 +19,8 @@ Não há sincronização automática: cada aparelho tem seu próprio quadro. Em 
 ## Recursos
 
 - Listas e cartões, edição de descrições e checklists; mover cartões arrastando ou pelo seletor de lista no celular.
+- Na criação de cartões, escolher título e template. O template Semana usa o backlog compartilhado e cinco checklists vazios no padrão `DD/MM/AA - segunda` até sexta. A semana é sugerida pelas datas do título (ano explícito ou o ano selecionado no campo de data), com prévia e ajuste da segunda-feira. Sem datas no título, sugere a próxima segunda-feira. Cartões antigos mantêm seus nomes originais.
+- Gerenciar templates em Ferramentas → Gerenciar templates: nomes de checklists fixos, opção de dias com datas automáticas e backlog compartilhado. Templates são salvos na conta. Editar/remover um template não altera os cartões já criados.
 - Arquivamento de uma lista com todos os cartões pelo menu da lista. O conteúdo e as horas são preservados; restaurar em Ferramentas → Listas arquivadas. Listas arquivadas deixam de aparecer no quadro e nos destinos para novos cartões, planejamento anual e transferência de pendências. Seus registros continuam nos relatórios e backups.
 - Cadastro obrigatório de fábrica em cada atividade; conclusão e edição dos itens.
 - Backlog global compartilhado por todas as listas marcadas como semanais.

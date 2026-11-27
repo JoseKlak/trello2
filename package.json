@@ -1,1 +1,1 @@
-{"name":"jose-demandas","version":"1.7.0","private":true,"type":"module","scripts":{"test":"node --test --test-isolation=none test/core.test.js test/cloud.test.js test/templates.test.js test/task-order.test.js","start":"node server.js"}}
+{"name":"jose-demandas","version":"1.8.0","private":true,"type":"module","scripts":{"test":"node --test --test-isolation=none test/core.test.js test/cloud.test.js test/templates.test.js test/task-order.test.js test/task-time.test.js","start":"node server.js"}}

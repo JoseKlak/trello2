@@ -36,8 +36,11 @@ export async function connectCloud(config) {
     script.onerror = () => reject(new Error('Não foi possível carregar o acesso à conta. Confira a conexão.'));
     document.head.append(script);
   });
+  let storage;try{storage=globalThis.localStorage}catch{}
+  const session = new DaySessionStorage(storage);
   const client = globalThis.supabase.createClient(config.url, config.publishableKey, {
-    auth: { persistSession: false, autoRefreshToken: true, detectSessionInUrl: false }
+    auth: { storage:session, storageKey:session.key, persistSession: true, autoRefreshToken: true, detectSessionInUrl: false }
   });
-  return { client, board: new CloudBoard(client) };
+  return { client, board: new CloudBoard(client), session };
 }
+import{DaySessionStorage}from'./session-storage.js?v=1.12.0';

@@ -1,0 +1,2 @@
+export function hoursToMinutes(value){const text=String(value).trim().replace(',','.');if(!/^\d+(?:\.\d{1,4})?$/.test(text))throw Error('Informe as horas, como 1,5 para 1h30.');const minutes=Math.round(Number(text)*60);if(!Number.isSafeInteger(minutes)||minutes<0)throw Error('Informe uma quantidade válida de horas.');return minutes}
+export const minutesToHours=minutes=>String(Math.round(minutes/60*10000)/10000);
